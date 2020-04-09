@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import'./App.css';
+export default class App extends Component {
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      data: [],
+      mobile:[],
+      loader: true
+    };
+  }
+  componentDidMount()
+  {
+    setTimeout(() => {this.setState({
+      data: ['Anshuman', 'Arpit', 'Shashwat'],
+      mobile:['9912123456','9883125678','8787878787'],
+      loader: false
+    })},2000);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  }
+  // displayDetail=(item,index1)=>{
+  //    return(
+  //      <p>{item}</p>
+  //    )
+  // }
+  render() {
+  
+    return (
+      <div id="show" className="renderContent">
+         {this.state.loader && (<p>Loading ...</p>)}
+         {this.state.data.map((items)=>(<p>Name:{items}</p>))}
+      </div>
+    )
+  }
 }
-
-export default App;
