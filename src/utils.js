@@ -12,3 +12,4 @@ export const data = [
       mobile:'8787878787',
     },
   ];
+  
